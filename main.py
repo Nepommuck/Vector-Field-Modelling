@@ -1,4 +1,3 @@
-import legacy_data_handler
 import pygame
 from pygame import Vector2
 import vector_drawer
