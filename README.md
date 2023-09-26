@@ -1,9 +1,10 @@
 # Vector-Field-Modelling
 PyGame visualisation of a Vector Field, which is designed for Physics Labolatory no. 31 in AGH UST Computer Science curriculum
 
-- [Laboratory Description](http://website.fis.agh.edu.pl/~pracownia_fizyczna/cwiczenia/31_opis.pdf) `(.pdf in polish)`
-- [Laboratory Report Template](http://website.fis.agh.edu.pl/~pracownia_fizyczna/cwiczenia/31_wykon.pdf) `(.pdf in polish)`
+- [Laboratory Description](readme-assets/lab_description.pdf) `(.pdf in polish)`
+- [Laboratory Report Template](readme-assets/report_template.pdf) `(.pdf in polish)`
 
+Source: [Pracownia Fizyczna, Wydział Fizyki i Informatyki Stosowanej](http://website.fis.agh.edu.pl/~pracownia_fizyczna/index.php?p=cwiczenia)
 
 ## Example visualizations
 
