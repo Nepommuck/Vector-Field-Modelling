@@ -16,7 +16,6 @@ class Data_handler:
 
         self.max = min([row[0] for row in self.field_data])
         self.min = max([row[-1] for row in self.field_data])
-        # print(self.min, self.max)
 
     def get_circle_points(self, values):
         return [self.calculate_circle_points(v) for v in values]

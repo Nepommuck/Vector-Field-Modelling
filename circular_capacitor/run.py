@@ -4,7 +4,7 @@ import circular_drawer
 import config as config
 
 from pygame import Vector2
-from regular.Color_settings import Color_settings
+from plate_capacitor.Color_settings import Color_settings
 from circular_solver import Circular_solver
 
 FPS = 24
@@ -23,20 +23,22 @@ small_circles_values = cfor(config.MN + config.DV, config.MX, 2 * config.DV)
 
 
 def main():
-    WIN = pygame.display.set_mode((config.WIDTH, config.WIDTH))
+    WIN = pygame.display.set_mode((config.SCREEN_SIZE, config.SCREEN_SIZE))
     pygame.display.set_caption("Real Physics here!")
 
     DH = circular_field_data.Data_handler("readings.txt")
 
     circles = [Circular_solver().solve_circle_equasion(points) for points in DH.get_circle_points(big_circles_values)]
-    drawer = circular_drawer.Circular_drawer(WIN, Vector2(config.WIDTH / 2, config.WIDTH / 2), DH.radiuses,
+    drawer = circular_drawer.Circular_drawer(WIN, Vector2(config.SCREEN_SIZE / 2, config.SCREEN_SIZE / 2), DH.radiuses,
                                              config.SCALE, circles)
 
     CS = Color_settings(pygame.Color("white"), pygame.Color("blue"))
     WIN.fill(CS.background)
 
-    print(drawer.radiuses)
-    drawer.draw_lines(800)
+    print("Loaded radiuses:")
+    print(drawer.radiuses, end="\n\n")
+
+    drawer.draw_lines(config.SCREEN_SIZE)
     drawer.draw_points(color=pygame.Color("Red"))
 
     drawer.draw_circles(width=2)
@@ -46,10 +48,11 @@ def main():
     drawer.circles = circles_small
     drawer.draw_circles(width=1)
 
-    print(DH.field_data)
-    print(
-        DH.calculate_circle_points(4.5)
-    )
+    print("Loaded readings:")
+    for index, column in enumerate(DH.field_data):
+        print(f"Column {index + 1}:  {column}")
+
+    DH.calculate_circle_points(config.SCALE)
 
     clock = pygame.time.Clock()
     run = True
