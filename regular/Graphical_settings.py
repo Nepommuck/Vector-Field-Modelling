@@ -20,6 +20,24 @@ class Graphical_settings:
             self.WIDTH, self.HEIGHT = 1360, 768
             self.HORIZONTAL = True
 
+        elif option == 'VERTICAL_SMALL':
+            self.MARGIN_LEFT = 50
+            self.MARGIN_TOP = 50
+            self.PADDING = 25
+            self.VECTOR_SCALE = 17
+            self.VECTOR_TIP_SIZE = 2
+            self.WIDTH, self.HEIGHT = 600, 300
+            self.HORIZONTAL = False
+
+        elif option == 'HORIZONTAL_SMALL':
+            self.MARGIN_LEFT = 50
+            self.MARGIN_TOP = 50
+            self.PADDING = 25
+            self.VECTOR_SCALE = 17
+            self.VECTOR_TIP_SIZE = 2
+            self.WIDTH, self.HEIGHT = 300, 600
+            self.HORIZONTAL = True
+
         elif option == 'BASIC':
             self.MARGIN_LEFT = 250
             self.MARGIN_TOP = 30
@@ -31,10 +49,10 @@ class Graphical_settings:
 
         # Custom
         else:
-            self.MARGIN_LEFT = 300
+            self.MARGIN_LEFT = 50
             self.MARGIN_TOP = 50
-            self.PADDING = 35
-            self.VECTOR_SCALE = 25
+            self.PADDING = 25
+            self.VECTOR_SCALE = 17
             self.VECTOR_TIP_SIZE = 2
-            self.WIDTH, self.HEIGHT = 1200, 900
-            self.HORIZONTAL = True
+            self.WIDTH, self.HEIGHT = 600, 300
+            self.HORIZONTAL = False

@@ -1,22 +1,16 @@
 import pygame
-from pygame import Vector2
 import vector_drawer
 import field_data
 import console_visualizer
+
 from Color_settings import Color_settings
-from Graphical_settings import Graphical_settings
+from pygame import Vector2
+from config import GRAPHICAL_SETTINGS as GS
 
 FPS = 24
 
 
-if __name__ == '__main__':
-    GS = Graphical_settings(
-        'Basic'
-        # 'Vertical_HD'
-        # 'Horizontal_HD'
-        # 'Custom'
-    )
-
+def main():
     WIN = pygame.display.set_mode((GS.WIDTH, GS.HEIGHT))
     pygame.display.set_caption("Real Physics here!")
 
@@ -24,9 +18,8 @@ if __name__ == '__main__':
     DH = field_data.Data_handler(data)
     dU = DH.calc_dU()
 
-    CS = Color_settings(pygame.Color("white"), pygame.Color("blue"))
-    # CS = Color_settings(pygame.Color("white"), pygame.Color("red"), pygame.Color("green"),
-    #                     (DH.get_min_length(), DH.get_max_length()))
+    CS = Color_settings(pygame.Color("white"), pygame.Color("green"), pygame.Color("red"),
+                        (DH.get_min_length(), DH.get_max_length()))
 
     WIN.fill(CS.background)
 
@@ -59,3 +52,6 @@ if __name__ == '__main__':
                 run = False
                 print('Program closed')
                 pygame.quit()
+
+if __name__ == '__main__':
+    main()
