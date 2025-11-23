@@ -1,11 +1,15 @@
 import pygame
-import circular_field_data
-import circular_drawer
-import config as config
+import os
 
 from pygame import Vector2
-from plate_capacitor.Color_settings import Color_settings
-from circular_solver import Circular_solver
+
+import circular_capacitor.config as config
+
+from common.Color_settings import Color_settings
+from circular_capacitor.circular_drawer import Circular_drawer
+from circular_capacitor.circular_field_data import Data_handler
+from circular_capacitor.circular_solver import Circular_solver
+
 
 FPS = 24
 
@@ -26,10 +30,12 @@ def main():
     WIN = pygame.display.set_mode((config.SCREEN_SIZE, config.SCREEN_SIZE))
     pygame.display.set_caption("Real Physics here!")
 
-    DH = circular_field_data.Data_handler("readings.txt")
+    DH = Data_handler(
+        os.path.join("circular_capacitor", "readings.txt")
+    )
 
     circles = [Circular_solver().solve_circle_equasion(points) for points in DH.get_circle_points(big_circles_values)]
-    drawer = circular_drawer.Circular_drawer(WIN, Vector2(config.SCREEN_SIZE / 2, config.SCREEN_SIZE / 2), DH.radiuses,
+    drawer = Circular_drawer(WIN, Vector2(config.SCREEN_SIZE / 2, config.SCREEN_SIZE / 2), DH.radiuses,
                                              config.SCALE, circles)
 
     CS = Color_settings(pygame.Color("white"), pygame.Color("blue"))

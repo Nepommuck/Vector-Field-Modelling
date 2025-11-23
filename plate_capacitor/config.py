@@ -1,4 +1,5 @@
-from Graphical_settings import Graphical_settings
+from plate_capacitor.Graphical_settings import Graphical_settings
+
 
 # Chose desired graphical setting from those defined in `Graphical_settings.py`
 GRAPHICAL_SETTINGS = Graphical_settings(

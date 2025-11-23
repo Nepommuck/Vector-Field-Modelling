@@ -1,11 +1,15 @@
 import pygame
-import vector_drawer
-import field_data
-import console_visualizer
+import os
 
-from Color_settings import Color_settings
 from pygame import Vector2
-from config import GRAPHICAL_SETTINGS as GS
+
+import plate_capacitor.console_visualization as console_visualization
+import plate_capacitor.vector_drawer as vector_drawer
+
+from common.Color_settings import Color_settings
+from plate_capacitor.config import GRAPHICAL_SETTINGS as GS
+from plate_capacitor.field_data import Data_handler, Data_reader
+
 
 FPS = 24
 
@@ -14,8 +18,10 @@ def main():
     WIN = pygame.display.set_mode((GS.WIDTH, GS.HEIGHT))
     pygame.display.set_caption("Real Physics here!")
 
-    data = field_data.Data_reader("readings.txt").read_data()
-    DH = field_data.Data_handler(data)
+    data = Data_reader(
+        os.path.join("plate_capacitor", "readings.txt")
+    ).read_data()
+    DH = Data_handler(data)
     dU = DH.calc_dU()
 
     CS = Color_settings(pygame.Color("white"), pygame.Color("green"), pygame.Color("red"),
@@ -38,8 +44,8 @@ def main():
                     position,
                     vector * GS.VECTOR_SCALE, GS.VECTOR_TIP_SIZE)
 
-    console_visualizer.print_field(data)
-    console_visualizer.print_dU(dU)
+    console_visualization.print_field(data)
+    console_visualization.print_dU(dU)
 
     clock = pygame.time.Clock()
     run = True

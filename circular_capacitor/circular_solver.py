@@ -1,5 +1,6 @@
 from pygame import Vector2
-from versors import versors
+
+from circular_capacitor.versors import versors
 
 
 class Circular_solver:

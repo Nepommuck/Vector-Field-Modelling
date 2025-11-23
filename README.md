@@ -25,9 +25,16 @@ Source: [Pracownia Fizyczna, Wydział Fizyki i Informatyki Stosowanej](http://we
 
 ### Plate capacitor
 - Put your readings into `plate_capacitor/readings.txt`. Type of whitespace characters shouldn't make any difference, bacause readings form is defined separately
-- (Optionally) Chose one of the ready graphical settings in `plate_capacitor/config.py`
-- (Optionally) Feel free to add new or modify existings graphical settings in `plate_capacitor/Graphical_settings.py`
-- Run `python3 plate_capacitor/run.py`
+- _(Optionally)_ Chose one of the ready graphical settings in `plate_capacitor/config.py`
+- _(Optionally)_ Feel free to add new or modify existings graphical settings in `plate_capacitor/Graphical_settings.py`
+- Make sure you are in the repository root directory:
+   ```sh
+   cd "$(git rev-parse --show-toplevel)"
+   ```
+- Run the script:
+   ```sh
+   python3 run-plate-capacitor.py
+   ```
 
 If readings were read succesfully, something like that should appear in the console:
 ```
@@ -57,16 +64,22 @@ Read field:
 ```
 
 
-### Plate capacitor
+### Circular capacitor
 - Put your readings into `circular_capacitor/readings.txt`. Format of this file is as follows:
   - Column 1: `Distance from the middle of n-th point (cm)`
   - Column 2: `Electric potential of n-th point on line I` | 
   - Column 3: `(...) on line II`
   - Column 4: `(...) on line II`
-
 - Set value-related settings in `circular_capacitor/config.py` in accordance with comments
-- (Optionally) Modify display options in `circular_capacitor/config.py`
-- Run `python3 circular_capacitor/run.py`
+- _(Optionally)_ Modify display options in `circular_capacitor/config.py`
+- Make sure you are in the repository root directory:
+   ```sh
+   cd "$(git rev-parse --show-toplevel)"
+   ```
+- Run the script:
+   ```sh
+   python3 run-circular-capacitor.py
+   ```
 
 If readings were read succesfully, something like that should appear in the console:
 ```
